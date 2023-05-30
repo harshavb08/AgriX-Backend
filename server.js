@@ -7,6 +7,7 @@ import userRouter from './routers/userRouter.js'
 import orderRouter from './routers/orderRouter.js';
 import departmentRouter from './routers/departmentRouter.js';
 import blogRouter from './routers/blogRouter.js';
+import cors from 'cors';
 
 // give mailing feature to the app without using any third party service
 import mailer from 'express-mailer';
@@ -16,6 +17,7 @@ import mailer from 'express-mailer';
 dotenv.config();
 
 const app = express();
+app.options('*', cors())
 
 // mine
 mailer.extend(app, {
