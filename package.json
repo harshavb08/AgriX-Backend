@@ -1,11 +1,11 @@
 {
-    "name": "amazon",
+    "name": "agrix",
     "type": "module",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon --watch backend --exec node --experimental-modules server.js --ignore client"
+        "start": "backend --exec node --experimental-modules server.js --ignore client"
     },
     "repository": {
         "type": "git",
