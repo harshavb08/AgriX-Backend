@@ -5,7 +5,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "backend --exec node --experimental-modules server.js --ignore client"
+        "start": "node server.js"
     },
     "repository": {
         "type": "git",
