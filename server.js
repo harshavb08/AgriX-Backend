@@ -39,7 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
+mongoose.connect("mongodb+srv://harsha:PkJf6fdemuxj1FoV@cluster0.irseyj4.mongodb.net/mern-app?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
