@@ -39,24 +39,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-// mongoose.connect(process.env.MONGODB_URL, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-// }).then(() => {
-//     console.log('Connected to MongoDB');
-// }).catch((error) => {
-//     console.log(error.reason);
-// });
-
-mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err) {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('Connected to database');
-    }
+mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => {
+    console.log('Connected to MongoDB');
+}).catch((error) => {
+    console.log(error.reason);
 });
 
-console.log(process.env.MONGODB_URL);
+// mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err) {
+//     if (err) {
+//         console.error(err);
+//     } else {
+//         console.log('Connected to database');
+//     }
+// });
+
 
 app.use('/api/users', userRouter)
 app.use('/api/products', productRouter)
