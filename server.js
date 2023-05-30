@@ -37,13 +37,16 @@ mailer.extend(app, {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+const port = process.env.PORT;
 
 mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
     console.log('Connected to MongoDB');
+    app.listen(port, () => {
+    console.log(`Server at http://localhost:${port}`)
+})
 }).catch((error) => {
     console.log(error.reason);
 });
@@ -84,8 +87,8 @@ app.use((err, req, res, next) => {
     res.status(500).send({ message: err.message });
 });
 
-const port = process.env.PORT;
 
-app.listen(port, () => {
-    console.log(`Server at http://localhost:${port}`)
-})
+
+// app.listen(port, () => {
+//     console.log(`Server at http://localhost:${port}`)
+// })
