@@ -17,7 +17,12 @@ import mailer from 'express-mailer';
 dotenv.config();
 
 const app = express();
-app.options('*', cors())
+
+
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://agrix.netlify.app'],
+    credentials: true
+}));
 
 // mine
 mailer.extend(app, {
@@ -45,8 +50,8 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
 }).then(() => {
     console.log('Connected to MongoDB');
     app.listen(port, () => {
-    console.log(`Server at http://localhost:${port}`)
-})
+        console.log(`Server at http://localhost:${port}`)
+    })
 }).catch((error) => {
     console.log(error.reason);
 });
